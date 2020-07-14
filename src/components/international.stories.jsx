@@ -1,6 +1,7 @@
 import React from 'react';
 import International from './international';
 import { useT } from '../hooks';
+import testt from '../t';
 
 const locale = {
   type: 'de',
@@ -9,6 +10,7 @@ const locale = {
     nested: {
       hello: 'Hallo nochmal!',
     },
+    replacement: 'Hello %{name} this is %{jsxtest} from the Horde. Zog-zog! Lass uns %{time} treffen!',
   },
 };
 
@@ -20,13 +22,17 @@ const WithSimpleTHook = () => {
   const t = useT();
 
   return (
-    <dl>
-      <dt>Simple string:</dt>
-      <dd>{t('hello')}</dd>
+    <div>
+      <dl>
+        <dt>Simple string:</dt>
+        <dd>{t('hello')}</dd>
 
-      <dt>Nested string:</dt>
-      <dd>{t('nested.hello')}</dd>
-    </dl>
+        <dt>Nested string:</dt>
+        <dd>{t('nested.hello')}</dd>
+      </dl>
+
+      {testt(t, 'replacement', { name: 'Mike', jsxtest: <span>kek</span>, time: <em>NIMMER</em> })}
+    </div>
   );
 };
 export const HookT = () => (
