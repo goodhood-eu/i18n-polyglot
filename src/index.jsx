@@ -1,13 +1,12 @@
-import React, { useMemo, useContext } from 'react';
-import LocaleContext, { Provider, Consumer } from './context';
-import { getDisplayName, getForwardedComponent } from './utils';
+import React, { useMemo } from 'react';
+import { Provider } from './context';
 import createTranslatorInstance from './setup';
 
 const International = ({ locale, children }) => {
   const context = useMemo(() => {
     const { t } = createTranslatorInstance(locale);
     return { t, locale };
-  }, []);
+  }, [locale]);
 
   return <Provider value={context}>{children}</Provider>;
 };

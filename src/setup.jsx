@@ -1,16 +1,10 @@
 import Polyglot from 'node-polyglot';
 
-const logMissing = (error) => console.error(error);
+const warn = (...args) => console.error(...args);
 
-const createTranslatorInstance = ({ type, dictionary }) => {
-  const polyglot = new Polyglot({
-    locale: type,
-    phrases: dictionary,
-    warn: logMissing,
-  });
-
+const createTranslatorInstance = ({ type: locale, dictionary: phrases }) => {
+  const polyglot = new Polyglot({ warn, locale, phrases });
   polyglot.t = polyglot.t.bind(polyglot);
-
   return polyglot;
 };
 

@@ -1,14 +1,36 @@
 import React from 'react';
-import { Button } from '@storybook/react/demo';
+import International from './index';
+import { useT } from './hooks';
 
-export default { title: 'Button' };
+const locale = {
+  type: 'de',
+  dictionary: {
+    hello: 'Hallo!',
+    nested: {
+      hello: 'Hallo nochmal!',
+    },
+  },
+};
 
-export const withText = () => <Button>Hello Button</Button>;
+const Wrapper = (props) => <International locale={locale} {...props} />;
+const WithSimpleTHook = () => {
+  const t = useT();
 
-export const withEmoji = () => (
-  <Button>
-    <span role="img" aria-label="so cool">
-      😀 😎 👍 💯
-    </span>
-  </Button>
+  return (
+    <dl>
+      <dt>Simple string:</dt>
+      <dd>{t('hello')}</dd>
+
+      <dt>Nested string:</dt>
+      <dd>{t('nested.hello')}</dd>
+    </dl>
+  );
+};
+
+export default { title: 'i18n polyglot' };
+
+export const hookT = () => (
+  <Wrapper>
+    <WithSimpleTHook />
+  </Wrapper>
 );

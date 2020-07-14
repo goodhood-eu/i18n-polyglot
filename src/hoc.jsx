@@ -1,12 +1,20 @@
-export const connectLocale = (Component, options = {}) => {
-  const LocalizedComponent = ({ forwardedRef, ...props }) => {
+import React, { forwardRef } from 'react';
+
+import { useInternational } from './hooks';
+
+const getDisplayName = (wrapper, Component) => {
+  const name = Component.displayName || Component.name || 'Component';
+  return `${wrapper}(${name})`;
+};
+
+const withLocale = (Component) => {
+  const LocalizedComponent = (props, ref) => {
     const locale = useInternational();
-    return <Component {...props} {...locale} ref={forwardedRef} />;
+    return <Component {...props} {...locale} ref={ref} />;
   };
 
-  const displayName = getDisplayName('connectLocale', Component);
-  if (options.forwardRef) return getForwardedComponent(displayName, LocalizedComponent);
-
-  LocalizedComponent.displayName = displayName;
-  return LocalizedComponent;
+  LocalizedComponent.displayName = getDisplayName('withLocale', Component);
+  return forwardRef(LocalizedComponent);
 };
+
+export default withLocale;
