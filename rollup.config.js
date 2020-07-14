@@ -1,21 +1,14 @@
-import json from '@rollup/plugin-json';
 import babel from '@rollup/plugin-babel';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import postcss from 'rollup-plugin-postcss';
-import postcssPresetEnv from 'postcss-preset-env';
 import resolve from '@rollup/plugin-node-resolve';
-import sassFunctions from 'sass-functions';
 import del from 'rollup-plugin-delete';
 import path from 'path';
-import sass from 'sass';
 import globImport from 'rollup-plugin-glob-import';
 import camelCase from 'lodash/camelCase';
 import copy from 'rollup-plugin-copy';
 import upperFirst from 'lodash/upperFirst';
 import acornJsx from 'acorn-jsx';
-import alias from '@rollup/plugin-alias';
 
-const ROOT_PKG_PATH = path.join(__dirname, '../../');
 
 const toFileExtension = (filepath, ext) => {
   const { dir, name } = path.parse(filepath);
@@ -89,17 +82,6 @@ export default (pkg, pkgPath) => ({
         // not supported
         return null;
       },
-    }),
-    json(),
-    copy({
-      hook: 'writeBundle',
-      targets: [
-        {
-          src: path.join(pkgPath, toFileExtension(pkg.main, 'css')),
-          dest: pkgPath,
-          rename: 'styles.css',
-        },
-      ],
     }),
   ],
 });

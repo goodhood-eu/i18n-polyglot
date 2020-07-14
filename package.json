@@ -4,30 +4,22 @@
   "author": "Nebenan.de <max@nebenan.de>",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "repository": "goodhood-eu/i18n-modular",
-  "bugs": "https://github.com/goodhood-eu/i18n-modular/issues",
-  "version": "1.0.2",
+  "repository": "goodhood-eu/i18n-polyglot",
+  "bugs": "https://github.com/goodhood-eu/i18n-polyglot/issues",
+  "version": "1.0.0-beta.0",
   "keywords": [
-    "webpack",
-    "phrase",
-    "phraseapp",
+    "react",
+    "polyglot",
     "i18n",
     "translation",
     "locale",
     "language",
     "localization"
   ],
-  "bin": {
-    "i18n-modular": "./bin/cli.js"
-  },
   "files": [
-    "bin/*.js",
-    "lib/loaders/*.js",
-    "lib/*.js",
-    "lib/*.json",
-    "!lib/*.test.js"
+    "lib/*.js"
   ],
-  "main": "lib/plugin.js",
+  "main": "lib/index.js",
   "scripts": {
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
     "lint": "eslint ./",
@@ -35,22 +27,25 @@
     "test": "TZ='GMT' mocha \"./{,!(node_modules)/**}/*.test.{js,jsx}\""
   },
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-json-strings": "^7.8.3",
+    "@babel/plugin-transform-strict-mode": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-plugin-transform-node-env-inline": "^0.4.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
-    "eslint-config-nebenan-base": "^1.0.0",
-    "mocha": "^8.0.1"
-  },
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "debug": "^4.1.1",
-    "escape-string-regexp": "^4.0.0",
-    "loader-utils": "^2.0.0",
-    "lodash": "^4.17.19",
-    "schema-utils": "^2.7.0",
-    "webpack": "^4.x.x",
-    "webpack-sources": "^1.4.3"
+    "eslint-config-nebenan": "^1.0.0",
+    "mocha": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1"
   },
   "peerDependencies": {
-    "webpack": "^4.x.x"
+    "react": "^16.13.0",
+    "prop-types": "^15.7.2"
+  },
+  "dependencies": {
+    "node-polyglot": "^2.4.0"
   }
 }

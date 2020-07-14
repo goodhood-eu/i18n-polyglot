@@ -1,5 +1,5 @@
-module.exports = {
-  "extends": "nebenan",
+{
+  "extends": ["nebenan"],
   "overrides": [
     {
       "files": ["**/*.test.js", "**/*.test.jsx"],
