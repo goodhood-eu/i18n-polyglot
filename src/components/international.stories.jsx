@@ -1,6 +1,6 @@
 import React from 'react';
-import International from './index';
-import T from './t';
+import International from './international';
+import { useT } from '../hooks';
 
 const locale = {
   type: 'de',
@@ -14,16 +14,23 @@ const locale = {
 
 const Wrapper = (props) => <International locale={locale} {...props} />;
 
-export default { title: 't' };
+export default { title: '<International />' };
 
-export const ComponentT = () => (
-  <Wrapper>
+const WithSimpleTHook = () => {
+  const t = useT();
+
+  return (
     <dl>
       <dt>Simple string:</dt>
-      <dd><T name="hello" /></dd>
+      <dd>{t('hello')}</dd>
 
       <dt>Nested string:</dt>
-      <dd><T name="nested.hello" /></dd>
+      <dd>{t('nested.hello')}</dd>
     </dl>
+  );
+};
+export const HookT = () => (
+  <Wrapper>
+    <WithSimpleTHook />
   </Wrapper>
 );

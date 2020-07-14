@@ -1,14 +1,4 @@
-import React, { useMemo } from 'react';
-import { Provider } from './context';
-import createTranslatorInstance from './setup';
-
-const International = ({ locale, children }) => {
-  const context = useMemo(() => {
-    const { t } = createTranslatorInstance(locale);
-    return { t, locale };
-  }, [locale]);
-
-  return <Provider value={context}>{children}</Provider>;
-};
-
-export default International;
+export { default as withLocale } from './hoc';
+export * from './hooks';
+export { default } from './components/international';
+export { default as T } from './components/t';
