@@ -14,7 +14,7 @@ const locale = {
 
 const Wrapper = (props) => <International locale={locale} {...props} />;
 
-export default { title: '<International />' };
+export default { title: 'International Component' };
 
 const WithSimpleTHook = () => {
   const t = useT();
