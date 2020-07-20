@@ -17,7 +17,7 @@
     "localization"
   ],
   "files": [
-    "lib/*.js"
+    "lib/"
   ],
   "module": "lib/index.esm.js",
   "main": "lib/index.js",

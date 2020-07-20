@@ -1,29 +1,28 @@
+/* eslint no-alert: "off" */
 import React from 'react';
-import International from './international';
 import T from './t';
 
-const locale = {
-  type: 'de',
-  dictionary: {
-    hello: 'Hallo!',
-    nested: {
-      hello: 'Hallo nochmal!',
-    },
-  },
-};
+export default { title: 'T' };
 
-const Wrapper = (props) => <International locale={locale} {...props} />;
-
-export default { title: 'T Component' };
-
-export const ComponentT = () => (
-  <Wrapper>
+export const t = () => (
+  <div>
     <dl>
       <dt>Simple string:</dt>
-      <dd><T name="hello" /></dd>
+      <dd><T id="text" /></dd>
 
       <dt>Nested string:</dt>
-      <dd><T name="nested.hello" /></dd>
+      <dd><T id="nested.text" /></dd>
+
+      <dt>Substitutions:</dt>
+      <dd>
+        <T
+          id="substitution"
+          options={{
+            variable_1: <strong onClick={() => alert('🍬')}>bubblegum</strong>,
+            variable_2: <em onClick={() => alert('🍑')}>ass</em>,
+          }}
+        />
+      </dd>
     </dl>
-  </Wrapper>
+  </div>
 );

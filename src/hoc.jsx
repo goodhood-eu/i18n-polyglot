@@ -1,11 +1,5 @@
 import React, { forwardRef } from 'react';
-
 import { useInternational } from './hooks';
-
-const getDisplayName = (wrapper, Component) => {
-  const name = Component.displayName || Component.name || 'Component';
-  return `${wrapper}(${name})`;
-};
 
 const withLocale = (Component) => {
   const LocalizedComponent = (props, ref) => {
@@ -13,7 +7,8 @@ const withLocale = (Component) => {
     return <Component {...props} {...locale} ref={ref} />;
   };
 
-  LocalizedComponent.displayName = getDisplayName('withLocale', Component);
+  const displayName = Component.displayName || Component.name || 'Component';
+  LocalizedComponent.displayName = `withLocale(${displayName})`;
   return forwardRef(LocalizedComponent);
 };
 

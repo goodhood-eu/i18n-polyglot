@@ -1,47 +1,65 @@
 import React from 'react';
-import International from './international';
-import { useT } from '../hooks';
+import { useInternational, useLocale, useT } from '../hooks';
 
-const locale = {
-  type: 'de',
-  dictionary: {
-    hello: 'Hallo!',
-    nested: {
-      hello: 'Hallo nochmal!',
-    },
-    jsx: 'I have come here to chew %{bubblegum} and kick %{ass}... and I\'m all out of %{bubblegum}. **begins to kick %{ass}**',
-  },
-};
+export default { title: 'International' };
 
-const Wrapper = (props) => <International locale={locale} {...props} />;
-
-export default { title: 'International Component' };
-
-const WithSimpleTHook = () => {
-  const t = useT();
+const WithInternationalHook = () => {
+  const { t } = useInternational();
 
   return (
     <div>
       <dl>
         <dt>Simple string:</dt>
-        <dd>{t('hello')}</dd>
+        <dd>{t('text')}</dd>
 
         <dt>Nested string:</dt>
-        <dd>{t('nested.hello')}</dd>
+        <dd>{t('nested.text')}</dd>
 
-        <dt>JSX:</dt>
+        <dt>Substitutions:</dt>
         <dd>
-          {t('jsx', {
-            bubblegum: 'bubblegum',
-            ass: <strong>ass</strong>,
+          {t('substitution', {
+            variable_1: 'bubblegum',
+            variable_2: 'ass',
           })}
         </dd>
       </dl>
     </div>
   );
 };
-export const HookT = () => (
-  <Wrapper>
-    <WithSimpleTHook />
-  </Wrapper>
-);
+
+export const InternationalHook = () => <WithInternationalHook />;
+
+const WithLocaleHook = () => {
+  const locale = useLocale();
+
+  return <pre>locale: {JSON.stringify(locale, null, 2)}</pre>;
+};
+
+export const LocaleHook = () => <WithLocaleHook />;
+
+
+const WithTHook = () => {
+  const t = useT();
+
+  return (
+    <div>
+      <dl>
+        <dt>Simple string:</dt>
+        <dd>{t('text')}</dd>
+
+        <dt>Nested string:</dt>
+        <dd>{t('nested.text')}</dd>
+
+        <dt>Substitutions:</dt>
+        <dd>
+          {t('substitution', {
+            variable_1: 'bubblegum',
+            variable_2: 'ass',
+          })}
+        </dd>
+      </dl>
+    </div>
+  );
+};
+
+export const THook = () => <WithTHook />;

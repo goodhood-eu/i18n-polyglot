@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
 
 import { useT } from '../hooks';
+import smartT from '../smart_t';
 
-const T = ({ name, ...props }) => useT()(name, props);
+const T = ({ id, options }) => smartT(useT(), id, options);
 
 T.propTypes = {
-  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  options: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.object,
+  ]),
 };
 
 export default T;

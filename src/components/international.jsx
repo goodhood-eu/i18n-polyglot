@@ -2,13 +2,13 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Polyglot from 'node-polyglot';
 import { Provider } from '../context';
-import smartT from '../smart_t';
 
+// Left like this for uglify to be able to clean up
 const warn = (...args) => console.error(...args);
 
 const createInstance = ({ type: locale, dictionary: phrases }) => {
   const polyglot = new Polyglot({ warn, locale, phrases });
-  return (...args) => smartT(polyglot, ...args);
+  return polyglot.t.bind(polyglot);
 };
 
 const International = ({ locale, children }) => {
@@ -22,10 +22,10 @@ const International = ({ locale, children }) => {
 
 International.propTypes = {
   locale: PropTypes.shape({
-    type: PropTypes.string,
-    dictionary: PropTypes.object,
+    type: PropTypes.string.isRequired,
+    dictionary: PropTypes.object.isRequired,
   }),
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default International;
