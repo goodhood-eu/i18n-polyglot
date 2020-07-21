@@ -44,10 +44,8 @@ const locale = {
 const MyComponent = ({ t, locale }) => (
   <T
     id="substitution"
-    options={{
-      variable_1: <strong onClick={() => alert('🍬')}>bubblegum</strong>,
-      variable_2: <em onClick={() => alert('🍑')}>ass</em>,
-    }}
+    variable_1={<strong onClick={() => alert('🍬')}>bubblegum</strong>}
+    variable_2={<em onClick={() => alert('🍑')}>ass</em>}
   />
 );
 // => I have come here to chew bubblegum and kick ass... and I'm all out of bubblegum.
