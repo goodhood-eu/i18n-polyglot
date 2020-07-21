@@ -16,6 +16,7 @@ export default {
       file: 'lib/index.js',
       format: 'cjs',
       sourcemap: true,
+      exports: 'named', // Disable warning for default imports
     },
   ],
   plugins: [
