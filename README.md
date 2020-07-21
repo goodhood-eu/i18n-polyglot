@@ -1,13 +1,13 @@
 i18n-polyglot
 =============
 
-A React wrapper for [https://airbnb.io/polyglot.js/](node-polyglot).
+A React wrapper for [node-polyglot](https://airbnb.io/polyglot.js/).
 
 ## API:
 
 ### <International />
 
-You need to use the `<International />` wrapper around your app to create a [https://airbnb.io/polyglot.js/](node-polyglot) instance and to provide context to your components.
+You need to use the `<International />` wrapper around your app to create a [node-polyglot](https://airbnb.io/polyglot.js/) instance and to provide context to your components.
 ```javascript
 import International from 'i18n-polyglot';
 
@@ -24,8 +24,8 @@ const locale = {
 </International>
 ```
 `<International />` component takes a `locale` object prop with following contents:
-  - `type`: string, name of the locale, for possible values check (https://github.com/airbnb/polyglot.js/blob/master/index.js#L96)[here].
-  - `dictionary`: object, same as `phrases` object one would pass to [https://github.com/airbnb/polyglot.js#translation](node-polyglot).
+  - `type`: string, name of the locale, for possible values check (here)[https://github.com/airbnb/polyglot.js/blob/master/index.js#L96].
+  - `dictionary`: object, same as `phrases` object one would pass to [node-polyglot](https://github.com/airbnb/polyglot.js#translation).
   - any other object props will be available to every component connected to the context. Use it to store locale specific configurations, like first day of the week.
 
 ### T
