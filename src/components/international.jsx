@@ -11,7 +11,7 @@ const createInstance = ({ type: locale, dictionary: phrases }) => {
   return polyglot.t.bind(polyglot);
 };
 
-const International = ({ locale, children }) => {
+const International = ({ locale = {}, children }) => {
   const context = useMemo(() => {
     const t = createInstance(locale);
     return { t, locale };
@@ -22,10 +22,10 @@ const International = ({ locale, children }) => {
 
 International.propTypes = {
   locale: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    dictionary: PropTypes.object.isRequired,
+    type: PropTypes.string,
+    dictionary: PropTypes.object,
   }),
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default International;
