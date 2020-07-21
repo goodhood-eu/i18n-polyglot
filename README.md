@@ -24,7 +24,7 @@ const locale = {
 </International>
 ```
 `<International />` component takes a `locale` object prop with following contents:
-  - `type`: string, name of the locale, for possible values check (here)[https://github.com/airbnb/polyglot.js/blob/master/index.js#L96].
+  - `type`: string, name of the locale, for possible values check [here](https://github.com/airbnb/polyglot.js/blob/master/index.js#L96).
   - `dictionary`: object, same as `phrases` object one would pass to [node-polyglot](https://github.com/airbnb/polyglot.js#translation).
   - any other object props will be available to every component connected to the context. Use it to store locale specific configurations, like first day of the week.
 
