@@ -13,7 +13,7 @@ const groupOptions = (options) => (
   }, { jsx: {}, regular: {} })
 );
 
-// Use in React environments only - returns an Array of mixed strings/Fragment nodes
+// Use in React environments only - returns an array of mixed strings/Fragment nodes
 const smartT = (simpleT, keyPath, options) => {
   // Options could be either a number or missing
   if (typeof options !== 'object') return simpleT(keyPath, options);
