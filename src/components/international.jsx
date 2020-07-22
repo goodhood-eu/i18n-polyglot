@@ -11,9 +11,9 @@ const createInstance = ({ type: locale, dictionary: phrases }) => {
   return polyglot.t.bind(polyglot);
 };
 
-const International = ({ locale = {}, children }) => {
+const International = ({ locale, children }) => {
   const context = useMemo(() => {
-    const t = createInstance(locale);
+    const t = createInstance(locale || {});
     return { t, locale };
   }, [locale]);
 
