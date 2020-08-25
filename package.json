@@ -52,6 +52,7 @@
     "mocha": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-load-script": "^0.0.6",
     "rollup": "^2.21.0",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-peer-deps-external": "^2.2.3"
@@ -59,6 +60,7 @@
   "peerDependencies": {
     "@babel/runtime": "^7.10.4",
     "react": "^16.13.0",
+    "react-load-script": "^0.0.6",
     "prop-types": "^15.7.2"
   },
   "dependencies": {
