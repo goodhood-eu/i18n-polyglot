@@ -13,9 +13,10 @@ const createInstance = ({ type: locale, dictionary: phrases }) => {
 
 const International = ({ locale, debug, children }) => {
   const context = useMemo(() => {
-    const t = debug || createInstance(locale || {});
+    const instance = createInstance(locale || {});
+    const t = typeof debug === 'function' ? debug.bind(null, instance) : instance;
     return { t, locale };
-  }, [locale]);
+  }, [locale, debug]);
 
   return <Provider value={context}>{children}</Provider>;
 };
