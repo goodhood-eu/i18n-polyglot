@@ -11,11 +11,12 @@ const createInstance = ({ type: locale, dictionary: phrases }) => {
   return polyglot.t.bind(polyglot);
 };
 
-const International = ({ locale, children }) => {
+const International = ({ locale, debug, children }) => {
   const context = useMemo(() => {
-    const t = createInstance(locale || {});
+    const instance = createInstance(locale || {});
+    const t = typeof debug === 'function' ? debug.bind(null, instance) : instance;
     return { t, locale };
-  }, [locale]);
+  }, [locale, debug]);
 
   return <Provider value={context}>{children}</Provider>;
 };
@@ -25,6 +26,7 @@ International.propTypes = {
     type: PropTypes.string,
     dictionary: PropTypes.object,
   }),
+  debug: PropTypes.func,
   children: PropTypes.node,
 };
 
