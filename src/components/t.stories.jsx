@@ -21,6 +21,16 @@ export const t = () => (
           variable_2={<em onClick={() => alert('🍑')}>ass</em>}
         />
       </dd>
+
+      <dt>Missing value:</dt>
+      <dd>
+        <T id="missing.value" />
+      </dd>
+
+      <dt>Empty call:</dt>
+      <dd>
+        <T />
+      </dd>
     </dl>
   </div>
 );
