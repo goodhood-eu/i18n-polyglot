@@ -22,6 +22,16 @@ const WithInternationalHook = () => {
             variable_2: 'ass',
           })}
         </dd>
+
+        <dt>Missing value:</dt>
+        <dd>
+          {t('missing.value')}
+        </dd>
+
+        <dt>Empty call:</dt>
+        <dd>
+          {t()}
+        </dd>
       </dl>
     </div>
   );
@@ -56,6 +66,16 @@ const WithTHook = () => {
             variable_1: 'bubblegum',
             variable_2: 'ass',
           })}
+        </dd>
+
+        <dt>Missing value:</dt>
+        <dd>
+          {t('missing.value')}
+        </dd>
+
+        <dt>Empty call:</dt>
+        <dd>
+          {t()}
         </dd>
       </dl>
     </div>
