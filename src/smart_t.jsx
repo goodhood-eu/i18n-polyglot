@@ -15,6 +15,9 @@ const groupOptions = (options) => (
 
 // Use in React environments only - returns an array of mixed strings/Fragment nodes
 const smartT = (simpleT, keyPath, options) => {
+  // If there is no key there is nothing to work with. Matching Polyglot behavior.
+  if (!keyPath) return undefined;
+
   // Options could be either a number or missing
   if (typeof options !== 'object') return simpleT(keyPath, options);
 
