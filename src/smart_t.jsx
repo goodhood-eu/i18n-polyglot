@@ -1,4 +1,4 @@
-import React, { isValidElement, Fragment } from 'react';
+import { isValidElement, Fragment } from 'react';
 
 // https://github.com/airbnb/polyglot.js/blob/master/index.js#L148
 // Could probably be written as /(%\{(?:[a-zA-Z_]+)\})/
