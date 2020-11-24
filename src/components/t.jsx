@@ -6,7 +6,7 @@ import smartT from '../smart_t';
 const T = ({ id, ...options }) => smartT(useT(), id, options) || null;
 
 T.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 export default T;

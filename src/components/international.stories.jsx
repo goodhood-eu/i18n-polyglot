@@ -1,4 +1,3 @@
-import React from 'react';
 import { useInternational, useLocale, useT } from '../hooks';
 
 export default { title: 'International' };

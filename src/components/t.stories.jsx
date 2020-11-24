@@ -1,5 +1,4 @@
 /* eslint no-alert: "off" */
-import React from 'react';
 import T from './t';
 
 export default { title: 'T' };
