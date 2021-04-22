@@ -24,6 +24,6 @@ export default {
     peerDepsExternal(),
     babel({ exclude: /node_modules/, babelHelpers: 'runtime' }),
     resolve({ browser: true, extensions: ['.js', '.jsx', '.json'] }),
-    commonjs(),
+    commonjs({ extensions: ['.js', '.jsx', '.json'] }),
   ],
 };
