@@ -1,21 +1,33 @@
-import { addDecorator } from '@storybook/react';
+import International from "../src";
 
-import International from '../src';
-
-const locale = {
-  type: 'de',
-  dictionary: {
-    text: 'Hallo!',
-    nested: {
-      text: 'Hallo nochmal!',
+/** @type { import('@storybook/react').Preview } */
+const preview = {
+  parameters: {
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
-    substitution: 'I have come here to chew %{variable_1} and kick %{variable_2}... and I\'m all out of %{variable_1}.',
   },
+  decorators: [
+    (Story) => {
+      const locale = {
+        type: 'de',
+        dictionary: {
+          text: 'Hallo!',
+          nested: {
+            text: 'Hallo nochmal!',
+          },
+          substitution: 'I have come here to chew %{variable_1} and kick %{variable_2}... and I\'m all out of %{variable_1}.',
+        },
+      };
+      return (
+          <International locale={locale}><Story locale={locale}/></International>
+      )
+    }
+  ],
 };
 
-
-const wrapper = (storyFn) => (
-  <International locale={locale}>{storyFn({ locale })}</International>
-);
-
-addDecorator(wrapper);
+export default preview;
