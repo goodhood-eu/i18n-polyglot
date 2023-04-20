@@ -1,6 +1,6 @@
 import T from '../t';
 
-export const Component = () => (
+export const AsJSX = () => (
   <div>
     <dl>
       <dt>Simple string:</dt>

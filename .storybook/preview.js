@@ -24,7 +24,7 @@ const preview = {
         },
       };
       return (
-          <International locale={locale}><Story locale={locale}/></International>
+          <International locale={locale}><Story /></International>
       )
     }
   ],
