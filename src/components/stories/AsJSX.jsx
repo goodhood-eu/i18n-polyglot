@@ -1,9 +1,6 @@
-/* eslint no-alert: "off" */
-import T from './t';
+import T from '../t';
 
-export default { title: 'T' };
-
-export const t = () => (
+export const AsJSX = () => (
   <div>
     <dl>
       <dt>Simple string:</dt>
